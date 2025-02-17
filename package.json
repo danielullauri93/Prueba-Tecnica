@@ -5,9 +5,10 @@
   "main": "app.ts",
   "scripts": {
     "dev": "nodemon --exec ts-node ./src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node ./dist/server.js"
   },
-  "author": "daniel ullauri",
+  "author": "Daniel Ullauri",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "3.0.0",
