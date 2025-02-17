@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import '../index.css';
 
-const RegistroUsuario = () => {
-  const [nombre, setNombre] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+const RegistroUsuario: React.FC = () => {
+  const [nombre, setNombre] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string>('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await api.post('/auth/registro', {
@@ -37,21 +37,21 @@ const RegistroUsuario = () => {
             type="text"
             placeholder="Nombre"
             value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNombre(e.target.value)}
             required
           />
           <input
             type="email"
             placeholder="Email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             required
           />
           <input
             type="password"
             placeholder="Contraseña"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
             required
           />
           <button type="submit">Registrarse</button>
